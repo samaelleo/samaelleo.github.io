@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>رزومه محسن کریمی</title>
+  <meta name="description" content="رزومه محسن کریمی — توسعه‌دهنده Full-Stack (Python/Django، JavaScript، Cloudflare Workers) با بیش از ۱۰ سال تجربه در توسعه وب و زیرساخت.">
+  <meta property="og:title" content="محسن کریمی — توسعه‌دهنده Full-Stack">
+  <meta property="og:description" content="Python/Django · JavaScript · Serverless · DevOps · شبکه">
+  <meta property="og:image" content="https://samael.ir/uploads/73ade98c-fe33-4885-b924-e6748d36b2e3.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f4f5f7;
+      --paper: #ffffff;
+      --ink: #1b1f27;
+      --muted: #5b6372;
+      --line: #e3e6eb;
+      --accent: #2156d9;
+      --accent-soft: #e8eefc;
+      --chip: #f1f3f6;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #0f1218;
+        --paper: #171b23;
+        --ink: #e7eaf0;
+        --muted: #9aa3b2;
+        --line: #2a303b;
+        --accent: #7aa2ff;
+        --accent-soft: #1d2740;
+        --chip: #212632;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #0f1218;
+      --paper: #171b23;
+      --ink: #e7eaf0;
+      --muted: #9aa3b2;
+      --line: #2a303b;
+      --accent: #7aa2ff;
+      --accent-soft: #1d2740;
+      --chip: #212632;
+    }
+
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Vazirmatn", Tahoma, sans-serif;
+      font-size: 15px;
+      line-height: 1.85;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .ltr { direction: ltr; unicode-bidi: isolate; display: inline-block; }
+
+    .toolbar {
+      max-width: 900px;
+      margin: 24px auto 0;
+      padding: 0 16px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+    .toolbar button {
+      font: inherit;
+      font-size: 13px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      color: var(--ink);
+      padding: 6px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .toolbar button:hover { border-color: var(--accent); color: var(--accent); }
+
+    .page {
+      max-width: 900px;
+      margin: 12px auto 48px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 44px 48px;
+    }
+
+    header.hero {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line);
+    }
+    .avatar {
+      width: 104px; height: 104px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 3px solid var(--accent-soft);
+      background: var(--chip);
+    }
+    h1 { margin: 0; font-size: 30px; font-weight: 800; line-height: 1.4; }
+    .role { margin: 2px 0 12px; color: var(--accent); font-weight: 700; font-size: 17px; }
+    .contacts {
+      display: flex; flex-wrap: wrap; gap: 6px 18px;
+      margin: 0; padding: 0; list-style: none;
+      font-size: 13.5px; color: var(--muted);
+    }
+    .contacts svg { width: 15px; height: 15px; vertical-align: -3px; margin-left: 5px; fill: currentColor; }
+    .contacts a { color: var(--muted); }
+    .contacts a:hover { color: var(--accent); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 40px;
+      margin-top: 30px;
+    }
+    section { margin-bottom: 30px; }
+    section:last-child { margin-bottom: 0; }
+    h2 {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0;
+      margin: 0 0 14px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--accent-soft);
+      color: var(--ink);
+    }
+    p { margin: 0 0 10px; }
+    .summary { color: var(--ink); text-align: justify; }
+
+    .job { margin-bottom: 20px; }
+    .job:last-child { margin-bottom: 0; }
+    .job-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+    .job h3 { margin: 0; font-size: 15.5px; font-weight: 700; }
+    .job .org { color: var(--muted); font-weight: 500; }
+    .date {
+      font-size: 12.5px; color: var(--muted);
+      background: var(--chip);
+      padding: 1px 10px; border-radius: 999px;
+      white-space: nowrap;
+    }
+    .job ul { margin: 6px 0 0; padding-right: 18px; color: var(--ink); }
+    .job li { margin-bottom: 2px; }
+    .job li::marker { color: var(--accent); }
+
+    .projects { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .project {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+    .project h4 { margin: 0; font-size: 14px; font-weight: 700; }
+    .project p { margin: 4px 0 0; font-size: 13px; color: var(--muted); line-height: 1.7; }
+    .project a { font-size: 12px; }
+
+    .skill-group { margin-bottom: 16px; }
+    .skill-group h4 { margin: 0 0 6px; font-size: 13px; font-weight: 700; color: var(--muted); }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; direction: ltr; justify-content: flex-end; }
+    .chip {
+      font-size: 12.5px;
+      background: var(--chip);
+      border-radius: 6px;
+      padding: 2px 9px;
+      line-height: 1.7;
+    }
+    .chip.key { background: var(--accent-soft); color: var(--accent); font-weight: 500; }
+
+    .plain { list-style: none; margin: 0; padding: 0; font-size: 14px; }
+    .plain li { margin-bottom: 8px; }
+    .plain small { display: block; color: var(--muted); font-size: 12.5px; }
+
+    footer.note {
+      max-width: 900px; margin: -32px auto 40px; padding: 0 16px;
+      text-align: center; font-size: 12px; color: var(--muted);
+    }
+
+    @media (max-width: 760px) {
+      .page { margin: 12px 16px 40px; padding: 28px 20px; }
+      header.hero { flex-direction: column; text-align: center; }
+      .contacts { justify-content: center; }
+      .grid { grid-template-columns: 1fr; gap: 0; }
+      .projects { grid-template-columns: 1fr; }
+      .chips { justify-content: flex-start; direction: rtl; }
+      h1 { font-size: 26px; }
+    }
+
+    @media print {
+      @page { size: A4; margin: 12mm; }
+      :root, :root[data-theme="dark"] {
+        --bg: #fff; --paper: #fff; --ink: #111; --muted: #555;
+        --line: #ddd; --accent: #1d4ed8; --accent-soft: #e5ecfb; --chip: #f2f3f5;
+      }
+      body { font-size: 12.5px; line-height: 1.7; }
+      .toolbar, footer.note { display: none; }
+      .page { border: 0; margin: 0; padding: 0; max-width: none; border-radius: 0; }
+      .grid { gap: 28px; grid-template-columns: 1fr 220px; }
+      .job, .project, .skill-group { break-inside: avoid; }
+      a { color: inherit; }
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <button type="button" id="theme-btn" aria-label="تغییر تم">تم تیره/روشن</button>
+    <button type="button" onclick="window.print()">دانلود PDF</button>
+  </div>
+
+  <main class="page">
+    <header class="hero">
+      <img class="avatar" src="https://samael.ir/uploads/73ade98c-fe33-4885-b924-e6748d36b2e3.png" alt="محسن کریمی">
+      <div>
+        <h1>محسن کریمی</h1>
+        <p class="role">توسعه‌دهنده Full-Stack &nbsp;·&nbsp; <span class="ltr">Python / Django · JavaScript · Serverless</span></p>
+        <ul class="contacts">
+          <li><a href="mailto:mkb158@gmail.com"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></svg><span class="ltr">mkb158@gmail.com</span></a></li>
+          <li><a href="tel:+989201002808"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg><span class="ltr">+98 920 100 2808</span></a></li>
+          <li><a href="https://samael.ir"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.9 6h-2.9a15.7 15.7 0 0 0-1.4-3.6A8 8 0 0 1 18.9 8zM12 4c.8 1.2 1.5 2.5 1.9 4h-3.8c.4-1.5 1.1-2.8 1.9-4zM4.3 14a8.2 8.2 0 0 1 0-4h3.4a16.5 16.5 0 0 0 0 4zm.8 2h2.9c.3 1.3.8 2.5 1.4 3.6A8 8 0 0 1 5.1 16zM8 8H5.1a8 8 0 0 1 4.3-3.6C8.8 5.5 8.4 6.7 8 8zm4 12c-.8-1.2-1.5-2.5-1.9-4h3.8c-.4 1.5-1.1 2.8-1.9 4zm2.3-6H9.7a14.7 14.7 0 0 1 0-4h4.6a14.7 14.7 0 0 1 0 4zm.3 5.6c.6-1.1 1.1-2.3 1.4-3.6h2.9a8 8 0 0 1-4.3 3.6zm1.7-5.6a16.5 16.5 0 0 0 0-4h3.4a8.2 8.2 0 0 1 0 4z"/></svg><span class="ltr">samael.ir</span></a></li>
+          <li><a href="https://github.com/samaelleo"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.4-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.4 1.1 2.9.8.1-.7.4-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.3 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg><span class="ltr">github.com/samaelleo</span></a></li>
+          <li><a href="https://t.me/samaelleo"><svg viewBox="0 0 24 24"><path d="M21.9 4.3 18.7 19.4c-.2 1-.9 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.5 13.2l-4.7-1.5c-1-.3-1-1 .2-1.5L20.5 3c.9-.3 1.6.2 1.4 1.3z"/></svg><span class="ltr">@samaelleo</span></a></li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="grid">
+      <div>
+        <section>
+          <h2>درباره من</h2>
+          <p class="summary">
+            توسعه‌دهنده Full-Stack با بیش از ۱۰ سال تجربه حرفه‌ای در طراحی و توسعه وب‌اپلیکیشن‌های مقیاس‌پذیر، سیستم‌های توزیع‌شده و راه‌حل‌های ابری (Serverless).
+            هسته تخصصم توسعه بک‌اند با Python/Django و پیاده‌سازی فرانت‌اند با JavaScript است و در کنار آن به مدیریت زیرساخت سرور، شبکه و DevOps مسلطم؛
+            همین باعث می‌شود یک محصول را از طراحی دیتابیس و API تا رابط کاربری، دیپلوی و نگهداری در محیط واقعی به‌تنهایی پیش ببرم.
+            به کارایی بالا، امنیت و رابط کاربری خلاقانه علاقه‌مندم و در سال‌های اخیر مدل‌های هوش مصنوعی را در سیستم‌هایی که طراحی کرده‌ام به کار گرفته‌ام.
+          </p>
+        </section>
+
+        <section>
+          <h2>سوابق کاری</h2>
+
+          <div class="job">
+            <div class="job-head">
+              <h3>پشتیبان فنی دیتاسنتر و توسعه‌دهنده <span class="org">— توسعه کسب‌وکار آینده (گروپلنسینگ)</span></h3>
+              <span class="date">۱۴۰۲ – ۱۴۰۵</span>
+            </div>
+            <ul>
+              <li>توسعه و نگهداری پلتفرم آموزشی گروپلنسینگ (<a class="ltr" href="https://panel.grouplancing.com/">panel.grouplancing.com</a>)</li>
+              <li>طراحی و اجرای شبکه یکپارچه اتصال از راه دور (VPN) برای دسترسی امن کاربران و تیم‌ها</li>
+              <li>طراحی و توسعه سیستم‌های مبتنی بر هوش مصنوعی، هم در لایه تحلیل و هم در لایه اجرا</li>
+              <li>دیپلوی سرویس‌های توزیع‌شده روی Cloudflare Workers با استفاده از D1 و KV</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-head">
+              <h3>مدیر پشتیبانی زیرساخت <span class="org">— نور و صدای خلیج فارس (پروژه بانک آینده)</span></h3>
+              <span class="date">۱۴۰۱ – ۱۴۰۲</span>
+            </div>
+            <ul>
+              <li>طراحی و اجرای زیرساخت ارتباطی سیستم‌های صوتی و تصویری یکپارچه بانک آینده</li>
+              <li>هدایت تیم پشتیبانی و هماهنگی با مجموعه‌های بزرگ در اجرای پروژه</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-head">
+              <h3>توسعه‌دهنده نرم‌افزار <span class="org">— توسن (FinTech)</span></h3>
+              <span class="date">از ۱۳۹۹</span>
+            </div>
+            <ul>
+              <li>کار روی سیستم‌های مالی حساس با تمرکز بر امنیت داده</li>
+              <li>پیاده‌سازی احراز هویت دوعاملی (2FA) و کار با چالش‌های امنیتی محصولات مالی</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-head">
+              <h3>IT CEO <span class="org">— استودیو هشت و چار</span></h3>
+              <span class="date">۱۳۹۷ – ۱۳۹۸</span>
+            </div>
+            <ul>
+              <li>تیم‌سازی و مدیریت بخش سئو و طراحی وب</li>
+              <li>طراحی و توسعه وب‌سایت‌های وردپرسی برای کسب‌وکارها (<a class="ltr" href="https://studio8o4.com/">studio8o4.com</a>)</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-head">
+              <h3>توسعه‌دهنده <span class="org">— ایران سرور</span></h3>
+              <span class="date">۱۳۹۷</span>
+            </div>
+            <ul>
+              <li>کار تیمی در چرخه کامل توسعه نرم‌افزار و استفاده روزمره از Git</li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-head">
+              <h3>کارمند فنی وب‌سایت <span class="org">— آسیا دی‌ال</span></h3>
+              <span class="date">۱۳۹۵ – ۱۳۹۶</span>
+            </div>
+            <ul>
+              <li>بررسی و به‌روزرسانی محصولات و محتوای وب‌سایت (<a class="ltr" href="https://asiadl.ir/">asiadl.ir</a>)</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2>پروژه‌ها و نمونه‌کارها</h2>
+          <div class="projects">
+            <div class="project">
+              <h4>پلتفرم آموزشی گروپلنسینگ</h4>
+              <p>پنل آموزشی و مدیریت کاربران.</p>
+              <a class="ltr" href="https://panel.grouplancing.com/">panel.grouplancing.com</a>
+            </div>
+            <div class="project">
+              <h4>تکانش</h4>
+              <p>وب‌سایت و فروشگاه آنلاین.</p>
+              <a class="ltr" href="https://etekanesh.com/">etekanesh.com</a>
+            </div>
+            <div class="project">
+              <h4>دنتی دنتال</h4>
+              <p>وب‌سایت کسب‌وکار.</p>
+              <a class="ltr" href="https://dentidental.ir/">dentidental.ir</a>
+            </div>
+            <div class="project">
+              <h4>دهکده پروتئین</h4>
+              <p>وب‌سایت فروشگاهی.</p>
+              <a class="ltr" href="https://dehkadehprotein.com/">dehkadehprotein.com</a>
+            </div>
+            <div class="project">
+              <h4>3x-ui با پشتیبانی PostgreSQL</h4>
+              <p>توسعه نسخه‌ای از پنل مدیریت 3x-ui با دیتابیس PostgreSQL / SQL.</p>
+              <a class="ltr" href="https://github.com/samaelleo/3x-ui-postgresql">github.com/samaelleo/3x-ui-postgresql</a>
+            </div>
+            <div class="project">
+              <h4>ابزارهای متن‌باز زیرساخت</h4>
+              <p>ssl-manager، argo-tunnel، server-disk-manager و ابزارهای Docker/Nginx.</p>
+              <a class="ltr" href="https://github.com/samaelleo">github.com/samaelleo</a>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <aside>
+        <section>
+          <h2>مهارت‌ها</h2>
+          <div class="skill-group">
+            <h4>بک‌اند</h4>
+            <div class="chips">
+              <span class="chip key">Python</span><span class="chip key">Django</span><span class="chip">REST API</span><span class="chip">PHP</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h4>فرانت‌اند</h4>
+            <div class="chips">
+              <span class="chip key">JavaScript</span><span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">Responsive UI</span><span class="chip">WordPress</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h4>دیتابیس</h4>
+            <div class="chips">
+              <span class="chip key">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">SQLite</span><span class="chip">Cloudflare D1</span><span class="chip">KV</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h4>Cloud و DevOps</h4>
+            <div class="chips">
+              <span class="chip key">Cloudflare Workers</span><span class="chip key">Docker</span><span class="chip">Linux</span><span class="chip">Nginx</span><span class="chip">Bash</span><span class="chip">Git</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h4>شبکه و امنیت</h4>
+            <div class="chips">
+              <span class="chip">VPN</span><span class="chip">OpenVPN</span><span class="chip">WireGuard</span><span class="chip">Xray</span><span class="chip">SSL/TLS</span><span class="chip">2FA</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h4>هوش مصنوعی</h4>
+            <div class="chips">
+              <span class="chip key">LLM Integration</span><span class="chip">AI Automation</span>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>تحصیلات</h2>
+          <ul class="plain">
+            <li>مهندسی معماری<small>ورود: ۱۳۹۲</small></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>نقاط قوت</h2>
+          <ul class="plain">
+            <li>تسلط هم‌زمان بر توسعه نرم‌افزار و زیرساخت</li>
+            <li>معماری Serverless و Edge Computing</li>
+            <li>تمرکز بر کارایی و امنیت</li>
+            <li>تیم‌سازی و رهبری فنی</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>زبان‌ها</h2>
+          <ul class="plain">
+            <li>فارسی<small>زبان مادری</small></li>
+            <li>انگلیسی<small>مطالعه و مستندات فنی</small></li>
+          </ul>
+        </section>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="note">آخرین به‌روزرسانی: آبان ۱۴۰۵</footer>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var saved = null;
+      try { saved = localStorage.getItem("theme"); } catch (e) {}
+      if (saved) root.setAttribute("data-theme", saved);
+      document.getElementById("theme-btn").addEventListener("click", function () {
+        var current = root.getAttribute("data-theme") ||
+          (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        var next = current === "dark" ? "light" : "dark";
+        root.setAttribute("data-theme", next);
+        try { localStorage.setItem("theme", next); } catch (e) {}
+      });
+    })();
+  </script>
+</body>
+</html>
