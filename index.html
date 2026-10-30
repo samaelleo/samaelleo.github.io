@@ -14,6 +14,7 @@
     @font-face {
       font-family: "Vazirmatn";
       src: url("fonts/Vazirmatn-Variable.woff2") format("woff2");
+      unicode-range: U+0020-007E, U+00A0-00FF, U+0600-06FF, U+200C-200F, U+2010-2027, U+2030-203A, U+2066-2069, U+2190-2199, U+2713, U+FDFC;
       font-weight: 100 900;
       font-style: normal;
       font-display: swap;
@@ -391,8 +392,29 @@
     .js .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s cubic-bezier(.2,.8,.2,1), transform .8s cubic-bezier(.2,.8,.2,1); transition-delay: var(--d, 0s); }
     .js .reveal.in { opacity: 1; transform: none; }
 
+    /* ---------- section transitions + dot nav ---------- */
+    .stage { will-change: transform, opacity; transform-origin: 50% 0; }
+    .dots {
+      position: fixed; left: 24px; top: 50%; transform: translateY(-50%); z-index: 40;
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .dots a {
+      position: relative; display: block; width: 10px; height: 10px; border-radius: 50%;
+      background: var(--line); border: 1px solid var(--muted);
+      transition: background .3s, transform .3s, box-shadow .3s, border-color .3s;
+    }
+    .dots a.on { background: var(--accent); border-color: var(--accent); transform: scale(1.35); box-shadow: 0 0 0 5px var(--chip); }
+    .dots a span {
+      position: absolute; left: 22px; top: 50%; transform: translate(-6px, -50%);
+      white-space: nowrap; font-size: 12px; font-weight: 500; color: var(--ink);
+      padding: 2px 10px; border-radius: 8px; background: var(--surface-solid); border: 1px solid var(--line);
+      opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s;
+    }
+    .dots a:hover span, .dots a:focus-visible span { opacity: 1; transform: translate(0, -50%); }
+
     /* ---------- responsive ---------- */
     @media (max-width: 960px) {
+      .dots { display: none; }
       .nav-links { display: none; }
       .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 40px; }
       .hero-inner > div:first-child { order: 2; }
@@ -430,7 +452,8 @@
       }
       body { font-size: 12px; line-height: 1.65; }
       .bg-fx, #net, nav.top, #scroll-progress, .hero-cta, .float-tag, .marquee, .contact-links, .terminal, footer.foot, .typed-line .caret { display: none !important; }
-      .js .reveal { opacity: 1 !important; transform: none !important; }
+      .js .reveal, .stage { opacity: 1 !important; transform: none !important; }
+      .dots { display: none !important; }
       * { animation: none !important; transition: none !important; backdrop-filter: none !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       .hero { padding: 0 0 10px; }
       .hero-inner { grid-template-columns: 1fr auto; text-align: right; gap: 20px; }
@@ -487,9 +510,19 @@
     </div>
   </nav>
 
+  <nav class="dots" aria-label="بخش‌ها">
+    <a href="#top"><span>شروع</span></a>
+    <a href="#about"><span>درباره من</span></a>
+    <a href="#experience"><span>سوابق کاری</span></a>
+    <a href="#projects"><span>پروژه‌ها</span></a>
+    <a href="#skills"><span>مهارت‌ها</span></a>
+    <a href="#more"><span>تحصیلات و زبان</span></a>
+    <a href="#contact"><span>تماس</span></a>
+  </nav>
+
   <header class="hero" id="top">
     <canvas id="net" aria-hidden="true"></canvas>
-    <div class="wrap">
+    <div class="wrap stage">
       <div class="hero-inner">
         <div>
           <span class="eyebrow reveal"><span class="dot"></span>آماده همکاری در جایگاه Full-Stack</span>
@@ -537,7 +570,7 @@
 
   <main>
     <section class="block" id="about">
-      <div class="wrap">
+      <div class="wrap stage">
         <div class="sec-head reveal"><span class="num">01.</span><h2>درباره من</h2><span class="rule"></span></div>
         <div class="about-grid">
           <div class="card spot about-text reveal">
@@ -572,7 +605,7 @@
     </section>
 
     <section class="block" id="experience">
-      <div class="wrap">
+      <div class="wrap stage">
         <div class="sec-head reveal"><span class="num">02.</span><h2>سوابق کاری</h2><span class="rule"></span></div>
         <div class="timeline">
           <div class="track"></div>
@@ -671,7 +704,7 @@
     </section>
 
     <section class="block" id="projects">
-      <div class="wrap">
+      <div class="wrap stage">
         <div class="sec-head reveal"><span class="num">03.</span><h2>پروژه‌ها و نمونه‌کارها</h2><span class="rule"></span></div>
         <div class="projects">
           <a class="card spot project tilt reveal" href="https://panel.grouplancing.com/">
@@ -709,7 +742,7 @@
     </section>
 
     <section class="block" id="skills">
-      <div class="wrap">
+      <div class="wrap stage">
         <div class="sec-head reveal"><span class="num">04.</span><h2>مهارت‌ها</h2><span class="rule"></span></div>
         <div class="skills">
           <div class="card spot skill reveal">
@@ -740,8 +773,8 @@
       </div>
     </section>
 
-    <section class="block">
-      <div class="wrap">
+    <section class="block" id="more">
+      <div class="wrap stage">
         <div class="extras">
           <div class="card spot extra reveal">
             <h3><svg viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.9V17h2V9zM5 13.2v4L12 21l7-3.8v-4L12 17z"/></svg>تحصیلات</h3>
@@ -768,7 +801,7 @@
     </section>
 
     <section class="block" id="contact">
-      <div class="wrap">
+      <div class="wrap stage">
         <div class="card contact reveal">
           <h2>بیایید با هم <span class="grad-text">چیزی بسازیم</span></h2>
           <p>برای همکاری در پروژه‌های Full-Stack، زیرساخت یا Serverless خوشحال می‌شوم صحبت کنیم.</p>
@@ -866,8 +899,36 @@
         var cur = 0;
         secs.forEach(function (s, i) { if (s && s.getBoundingClientRect().top < innerHeight * 0.35) cur = i; });
         links.forEach(function (a, i) { a.classList.toggle("active", i === cur && h.scrollTop > 200); });
+        if (!reduce) stageFx();
       }
-      addEventListener("scroll", onScroll, { passive: true });
+      // section enter/exit: sections rise and fade in, the previous one shrinks and fades out
+      var stages = [].slice.call(document.querySelectorAll(".stage"));
+      var dots = [].slice.call(document.querySelectorAll(".dots a"));
+      var dotSecs = dots.map(function (a) { return document.querySelector(a.getAttribute("href")); });
+      var clamp = function (v) { return Math.min(Math.max(v, 0), 1); };
+      var ease = function (t) { return 1 - Math.pow(1 - t, 3); };
+      function stageFx() {
+        var vh = innerHeight;
+        stages.forEach(function (el) {
+          var r = el.parentNode.getBoundingClientRect();
+          var enter = clamp((vh - r.top) / (vh * 0.45));
+          var exit = clamp((vh * 0.4 - r.bottom) / (vh * 0.4));
+          if (enter === 1 && exit === 0) { el.style.transform = ""; el.style.opacity = ""; return; }
+          var e = ease(enter), x = ease(exit);
+          el.style.transformOrigin = exit > 0 ? "50% 100%" : "50% 0";
+          el.style.transform = "translate3d(0," + ((1 - e) * 80 - x * 60) + "px,0) scale(" + ((0.94 + 0.06 * e) * (1 - 0.08 * x)) + ")";
+          el.style.opacity = e * (1 - x);
+        });
+        var cur = 0;
+        dotSecs.forEach(function (s, i) { if (s.getBoundingClientRect().top < vh * 0.5) cur = i; });
+        dots.forEach(function (a, i) { a.classList.toggle("on", i === cur); });
+      }
+      var ticking = false;
+      addEventListener("scroll", function () {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function () { ticking = false; onScroll(); });
+      }, { passive: true });
       addEventListener("resize", onScroll);
       onScroll();
 
