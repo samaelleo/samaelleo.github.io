@@ -2,7 +2,7 @@
 
 <div dir="rtl">
 
-نسخه آنلاین: **https://samaelleo.github.io/resume/**
+نسخه آنلاین: **https://samaelleo.github.io/**
 
 توسعه‌دهنده Full-Stack با بیش از ۱۰ سال تجربه در Python/Django، JavaScript، معماری Serverless (Cloudflare Workers) و مدیریت زیرساخت و شبکه.
 
