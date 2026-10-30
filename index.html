@@ -244,8 +244,10 @@
 
     /* ---------- marquee ---------- */
     .marquee { margin: 36px 0 0; overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
-    .marquee-label { text-align: center; color: var(--muted); font-size: 13px; margin-bottom: 14px; }
-    .marquee-track { display: flex; gap: 18px; width: max-content; animation: scroll-x 32s linear infinite; direction: ltr; }
+    .marquee { direction: ltr; }
+    .marquee-label { direction: rtl; text-align: center; color: var(--muted); font-size: 13px; margin-bottom: 14px; }
+    .marquee-track { display: flex; width: max-content; animation: scroll-x var(--dur, 32s) linear infinite; direction: ltr; }
+    .marquee-track > * { flex-shrink: 0; margin-right: 18px; }
     .marquee:hover .marquee-track { animation-play-state: paused; }
     @keyframes scroll-x { to { transform: translateX(-50%); } }
     .logo-pill {
@@ -933,10 +935,28 @@
         el.addEventListener("pointerleave", function () { el.style.transform = ""; });
       });
 
-      // marquee: duplicate logos for a seamless loop
+      // marquee: repeat the group until half the track covers the strip, then slide by half for a seamless loop
       var track = document.querySelector(".marquee-track");
-      track.innerHTML += track.innerHTML;
-      [].slice.call(track.children).slice(track.children.length / 2).forEach(function (a) { a.setAttribute("aria-hidden", "true"); a.tabIndex = -1; });
+      var group = track.innerHTML, copies = 0;
+      function fillMarquee() {
+        track.innerHTML = group;
+        var gw = track.scrollWidth;
+        var need = Math.max(1, Math.ceil(track.parentNode.offsetWidth / gw));
+        copies = need;
+        track.innerHTML = new Array(need * 2 + 1).join(group);
+        var n = track.children.length / (need * 2);
+        [].slice.call(track.children).slice(n).forEach(function (a) { a.setAttribute("aria-hidden", "true"); a.tabIndex = -1; });
+        track.style.setProperty("--dur", (gw * need / 45) + "s");
+      }
+      fillMarquee();
+      var mqTimer;
+      addEventListener("resize", function () {
+        clearTimeout(mqTimer);
+        mqTimer = setTimeout(function () {
+          var gw = track.scrollWidth / (copies * 2);
+          if (Math.max(1, Math.ceil(track.parentNode.offsetWidth / gw)) !== copies) fillMarquee();
+        }, 200);
+      });
 
       // network canvas
       var cv = document.getElementById("net");
