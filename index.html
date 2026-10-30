@@ -9,10 +9,27 @@
   <meta property="og:title" content="محسن کریمی — توسعه‌دهنده Full-Stack">
   <meta property="og:description" content="Python/Django · JavaScript · Serverless · DevOps · شبکه">
   <meta property="og:image" content="https://samael.ir/uploads/73ade98c-fe33-4885-b924-e6748d36b2e3.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="preload" href="fonts/Vazirmatn-Variable.woff2" as="font" type="font/woff2" crossorigin>
   <style>
+    @font-face {
+      font-family: "Vazirmatn";
+      src: url("fonts/Vazirmatn-Variable.woff2") format("woff2");
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "JetBrains Mono";
+      src: url("fonts/JetBrainsMono-400.woff2") format("woff2");
+      font-weight: 400;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "JetBrains Mono";
+      src: url("fonts/JetBrainsMono-600.woff2") format("woff2");
+      font-weight: 600;
+      font-display: swap;
+    }
     :root {
       --bg: #f5f7fb;
       --bg-2: #eef1f8;
@@ -78,7 +95,7 @@
     }
     a { color: var(--accent); text-decoration: none; }
     .ltr { direction: ltr; unicode-bidi: isolate; display: inline-block; }
-    .mono { font-family: "JetBrains Mono", monospace; }
+    .mono { font-family: "JetBrains Mono", "Vazirmatn", monospace; }
     .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
 
     /* ---------- background ---------- */
@@ -125,7 +142,7 @@
       width: 34px; height: 34px; border-radius: 10px;
       display: grid; place-items: center;
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #fff; font-family: "JetBrains Mono", monospace; font-size: 14px; font-weight: 600;
+      color: #fff; font-family: "JetBrains Mono", "Vazirmatn", monospace; font-size: 14px; font-weight: 600;
     }
     .nav-links { display: flex; gap: 4px; list-style: none; margin: 0; padding: 0; }
     .nav-links a {
@@ -172,7 +189,7 @@
     }
     @keyframes shine { to { background-position: 200% center; } }
     .typed-line { font-size: clamp(17px, 2.3vw, 22px); font-weight: 500; color: var(--muted); min-height: 1.9em; }
-    .typed-line .typed { color: var(--ink); font-family: "JetBrains Mono", monospace; font-weight: 600; direction: ltr; unicode-bidi: isolate; }
+    .typed-line .typed { color: var(--ink); font-family: "JetBrains Mono", "Vazirmatn", monospace; font-weight: 600; direction: ltr; unicode-bidi: isolate; }
     .typed-line .caret { display: inline-block; width: 2px; height: 1.1em; background: var(--accent); vertical-align: -3px; margin-right: 2px; animation: blink 1s step-end infinite; }
     @keyframes blink { 50% { opacity: 0; } }
     .hero p.lead { max-width: 560px; color: var(--muted); margin: 14px 0 26px; }
@@ -203,7 +220,7 @@
     }
     .float-tag {
       position: absolute; z-index: 2;
-      font-family: "JetBrains Mono", monospace; font-size: 12px; font-weight: 600;
+      font-family: "JetBrains Mono", "Vazirmatn", monospace; font-size: 12px; font-weight: 600;
       padding: 6px 12px; border-radius: 10px; direction: ltr;
       background: var(--surface-solid); border: 1px solid var(--line); box-shadow: var(--shadow);
       animation: bob 5s ease-in-out infinite;
@@ -239,13 +256,13 @@
       transition: color .3s, border-color .3s, transform .3s;
     }
     .logo-pill b { font-size: 15px; font-weight: 800; }
-    .logo-pill small { font-family: "JetBrains Mono", monospace; font-size: 11px; opacity: .8; }
+    .logo-pill small { font-family: "JetBrains Mono", "Vazirmatn", monospace; font-size: 11px; opacity: .8; }
     .logo-pill:hover { color: var(--ink); border-color: var(--accent); transform: translateY(-3px); }
 
     /* ---------- sections ---------- */
     section.block { padding: 64px 0; }
     .sec-head { display: flex; align-items: center; gap: 14px; margin-bottom: 30px; }
-    .sec-head .num { font-family: "JetBrains Mono", monospace; color: var(--accent); font-size: 14px; font-weight: 600; }
+    .sec-head .num { font-family: "JetBrains Mono", "Vazirmatn", monospace; color: var(--accent); font-size: 14px; font-weight: 600; }
     .sec-head h2 { margin: 0; font-size: 28px; font-weight: 900; }
     .sec-head .rule { flex: 1; height: 1px; background: linear-gradient(90deg, var(--line), transparent); }
     html[dir="rtl"] .sec-head .rule { background: linear-gradient(270deg, var(--line), transparent); }
@@ -267,7 +284,7 @@
     .about-text { padding: 28px 30px; text-align: justify; }
     .about-text p { margin: 0 0 12px; }
     .about-text p:last-child { margin: 0; }
-    .terminal { padding: 0; direction: ltr; font-family: "JetBrains Mono", monospace; font-size: 13px; line-height: 1.85; }
+    .terminal { padding: 0; direction: ltr; font-family: "JetBrains Mono", "Vazirmatn", monospace; font-size: 13px; line-height: 1.85; }
     .term-bar { display: flex; gap: 7px; padding: 12px 16px; border-bottom: 1px solid var(--line); }
     .term-bar span { width: 11px; height: 11px; border-radius: 50%; }
     .term-bar span:nth-child(1) { background: #ff5f57; } .term-bar span:nth-child(2) { background: #febc2e; } .term-bar span:nth-child(3) { background: #28c840; }
@@ -292,7 +309,7 @@
     .t-head h3 { margin: 0; font-size: 17px; font-weight: 800; }
     .t-head .org { display: block; font-size: 14px; color: var(--accent); font-weight: 500; }
     .date {
-      font-family: "JetBrains Mono", monospace; font-size: 12.5px; font-weight: 600; color: var(--muted);
+      font-family: "JetBrains Mono", "Vazirmatn", monospace; font-size: 12.5px; font-weight: 600; color: var(--muted);
       background: var(--chip); padding: 2px 12px; border-radius: 999px; white-space: nowrap;
     }
     .t-card ul { margin: 10px 0 0; padding-right: 18px; }
@@ -301,7 +318,7 @@
     .t-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; direction: ltr; justify-content: flex-end; }
 
     .chip {
-      font-family: "JetBrains Mono", monospace; font-size: 12px; font-weight: 600;
+      font-family: "JetBrains Mono", "Vazirmatn", monospace; font-size: 12px; font-weight: 600;
       background: var(--chip); color: var(--ink);
       border: 1px solid var(--line);
       padding: 3px 10px; border-radius: 8px; line-height: 1.7;
@@ -322,7 +339,7 @@
     .project .p-icon.code span { color: #fff; font-size: 22px; font-weight: 900; }
     .project h3 { margin: 0 0 4px; font-size: 16.5px; font-weight: 800; }
     .project p { margin: 0 0 14px; color: var(--muted); font-size: 14px; line-height: 1.8; flex: 1; }
-    .project .p-link { font-family: "JetBrains Mono", monospace; font-size: 12.5px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; direction: ltr; align-self: flex-end; }
+    .project .p-link { font-family: "JetBrains Mono", "Vazirmatn", monospace; font-size: 12.5px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; direction: ltr; align-self: flex-end; }
     .project .p-link::after { content: "↗"; transition: transform .2s; }
     .project:hover .p-link::after { transform: translate(2px, -2px); }
 
@@ -509,7 +526,6 @@
         <div class="marquee-label">مجموعه‌هایی که با آن‌ها همکاری داشته‌ام</div>
         <div class="marquee-track">
           <a class="logo-pill" href="https://panel.grouplancing.com/"><b>گروپلنسینگ</b><small>panel.grouplancing.com</small></a>
-          <a class="logo-pill" href="https://etekanesh.com/"><b>تکانش</b><small>etekanesh.com</small></a>
           <a class="logo-pill" href="https://dentidental.ir/"><b>دنتی دنتال</b><small>dentidental.ir</small></a>
           <a class="logo-pill" href="https://dehkadehprotein.com/"><b>دهکده پروتئین</b><small>dehkadehprotein.com</small></a>
           <a class="logo-pill" href="https://studio8o4.com/"><b>استودیو هشت و چار</b><small>studio8o4.com</small></a>
@@ -663,12 +679,6 @@
             <h3>پلتفرم آموزشی گروپلنسینگ</h3>
             <p>پنل آموزشی و مدیریت کاربران.</p>
             <span class="p-link">panel.grouplancing.com</span>
-          </a>
-          <a class="card spot project tilt reveal" style="--d:.08s" href="https://etekanesh.com/">
-            <div class="p-icon code"><span>ت</span></div>
-            <h3>تکانش</h3>
-            <p>وب‌سایت و فروشگاه آنلاین.</p>
-            <span class="p-link">etekanesh.com</span>
           </a>
           <a class="card spot project tilt reveal" style="--d:.16s" href="https://dentidental.ir/">
             <div class="p-icon code"><span>د</span></div>
